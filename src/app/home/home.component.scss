@@ -7,27 +7,39 @@
   background-repeat: no-repeat;
   background-size: cover;
 
-  padding: 20vw;
-
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
+  position: relative;
 }
 
 .title {
-  color: antiquewhite;
-}
-.title h1 {
-  font-size: 6rem;
-}
-.title h3 {
-  font-size: 4rem;
+  width: 65%;
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  padding: 90px;
+  clip-path: polygon(0 0, 100% 31%, 100% 100%, 0% 100%);
+  background-color: #eb5757e6;
+  color: white;
+  display: flex;
+  align-items: flex-end;
+
+  .titleText h1 {
+    font-size: 6rem;
+  }
+  .titleText h3 {
+    font-size: 4rem;
+  }
+
+  button {
+    @include buttons;
+    padding: 20px;
+    width: fit-content;
+    height: fit-content;
+    color: #EB5757;
+    background-color: floralwhite;
+    text-transform: uppercase;
+  }
 }
 
-.home button {
-  @include buttons;
-  padding: 20px;
-  width: fit-content;
-}
 
 
