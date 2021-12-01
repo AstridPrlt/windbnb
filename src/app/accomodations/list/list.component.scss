@@ -1,0 +1,62 @@
+@import './../../../styles.scss';
+
+.list {
+  margin-top: 85px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 50px 2.3vw;
+
+  .homeItem {
+    width: 27.2vw;
+    img {
+      width: 100%;
+      height: calc((27.5vw)*(68/100));
+      object-fit: cover;
+      border-radius: 24px;
+    }
+
+    .details {
+      height: 55px;
+      display: flex;
+      align-items: center;
+      position: relative;
+      .superhost {
+        display: inline-block;
+        margin-right: 10px;
+        padding: 6px 10px;
+        border: 1px solid $darkGray;
+        border-radius: 12px;
+        color: $darkGray;
+        font-weight: 700;
+        font-size: 1.2rem;
+      }
+      .type {
+        color: $lightGrey;
+        font-size: 1.4rem;
+        font-weight: 500;
+      }
+      .rating {
+        position: absolute;
+        right: 0;
+        .material-icons-round.pink {
+          color: $pink;
+          width: 16px;
+          font-size: 16px;
+          vertical-align: top;
+        }
+        .rate {
+          color: $darkGray;
+          font-weight: 500;
+          font-size: 1.4rem;
+        }
+      }
+    }
+
+    h4 {
+      color: $dark;
+      font-weight: 600;
+      font-size: 1.6rem;
+    }
+  }
+}
