@@ -1,0 +1,115 @@
+@import './../../../styles.scss';
+
+#searchContainer {
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 100%;
+  z-index: 10;
+  background-color: white;
+  border-bottom: 2px solid grey;
+  padding: 6.5vw 6.5vw 3vw;
+  font-family: $fontMulish;
+}
+
+form {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  box-shadow: 0px 1px 6px rgba(0, 0, 0, 0.1);
+  border-radius: 16px;
+}
+
+.location {
+  display: grid;
+  position: relative;
+  color: $darkGray;
+  .locations {
+    position: absolute;
+    top: 100%;
+    li {
+      list-style: none;
+      font-size: 1.4rem;
+      padding: 10px 26px;
+      span {
+        vertical-align: bottom;
+        font-size: 1.9rem;
+        margin-right: 10px;
+      }
+    }
+  }
+}
+
+.searchField {
+  width: 100%;
+  border: 1px solid #333333;
+  filter: drop-shadow(0px 1px 6px rgba(0, 0, 0, 0.1));
+  border-radius: 16px;
+  padding: 10px 26px;
+  span {
+    display: block;
+    font-size: 0.9rem;
+    font-weight: 800;
+  }
+  input {
+    border: none;
+    background: transparent;
+  }
+}
+
+.guests {
+  // display: grid;
+  position: relative;
+  .guestsDetails {
+    // display: grid;
+    position: absolute;
+    top: 100%;
+  }
+}
+
+
+input[type="number"] {
+  border: none;
+}
+input[type=number]::-webkit-inner-spin-button,
+input[type=number]::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+}
+.plusminus {
+  border: 1px solid $lightGrey;
+  color: $lightGrey;
+  border-radius: 4px;
+  background: transparent;
+  width: 23px;
+  height: 23px;
+}
+.num {
+  width: 35px;
+  text-align: center;
+}
+
+.searchBtn {
+  text-align: center;
+
+  button {
+    border: none;
+    background-color: $pink;
+    color: $snowWhite;
+    padding: 15px 25px;
+    box-shadow: 0px 1px 6px rgba(0, 0, 0, 0.1);
+    border-radius: 16px;
+    // background-color: transparent;
+    // .material-icons-round.pink {
+      //   color: $pink;
+      //   width: 16px;
+      //   font-size: 16px;
+      // }
+      span {
+        vertical-align: middle;
+      }
+      .material-icons-round {
+        // color: $snowWhite;
+        width: 16px;
+        font-size: 16px;
+      }
+    }
+  }

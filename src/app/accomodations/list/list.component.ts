@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { HomeItem } from 'src/app/_models/home-item.model';
 import DataJson from '../../../assets/stays.json';
 
@@ -9,7 +9,11 @@ import DataJson from '../../../assets/stays.json';
 })
 
 export class ListComponent implements OnInit {
-  list: HomeItem[] = DataJson;
+  // list: HomeItem[] = DataJson;
+
+  // list: HomeItem[] = DataJson;
+  @Input()
+  list!: HomeItem[];
 
   constructor() { }
 

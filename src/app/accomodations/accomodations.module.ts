@@ -5,6 +5,8 @@ import { RouterModule, Routes } from '@angular/router';
 import { AccomodationsRoutingModule } from './accomodations-routing.module';
 import { AccomodationsComponent } from './accomodations.component';
 import { ListComponent } from './list/list.component';
+import { SearchComponent } from './search/search.component';
+import { ReactiveFormsModule } from '@angular/forms';
 
 const routes: Routes = [
   { path: '', component: AccomodationsComponent }
@@ -13,12 +15,14 @@ const routes: Routes = [
 @NgModule({
   declarations: [
     AccomodationsComponent,
-    ListComponent
+    ListComponent,
+    SearchComponent
   ],
   imports: [
     CommonModule,
     RouterModule.forChild(routes),
-    AccomodationsRoutingModule
+    AccomodationsRoutingModule,
+    ReactiveFormsModule
   ],
   exports: [
     RouterModule

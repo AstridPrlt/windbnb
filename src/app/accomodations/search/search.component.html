@@ -1,0 +1,59 @@
+<div id="searchContainer">
+  <div class="searchForm">
+
+
+    <form (ngSubmit)="searchSubmit()" [formGroup]="searchForm">
+
+      <div class="location">
+        <div class="searchField">
+          <span>LOCATION</span>
+          <input class="inputSelect" type="text" value="All" formControlName="location">
+        </div>
+        <div class="locations">
+            <li *ngFor="let item of listCities"><span class="material-icons">place</span>{{ item }}</li>
+        </div>
+        <!-- <label for="location-select">Location</label>
+        <select name="locationCities" id="location-select" formControlName="location">
+          <option value="">All</option>
+          <option *ngFor="let city of listCities" value="{{city}}">
+            {{city}}</option>
+        </select> -->
+      </div>
+
+      <div class="guests">
+        <div class="searchField">
+          <span>GUESTS</span>
+          <input class="inputSelect" type="text" value="Add guests">
+        </div>
+        <div class="guestsDetails">
+          <label for="adults">
+            <span>Adults</span>
+            <span>Ages 13 or above</span>
+          </label>
+          <div class="guestsAdults">
+            <button class="plusminus" (click)="handleGuestsMinus()">-</button>
+            <input type="number" name="adults" class="num" value="0" formControlName="guestsAdults"/>
+            <button class="plusminus" (click)="handleGuestsPlus()">+</button>
+          </div>
+          <label for="children">
+            <span>Children</span>
+            <span>Ages 2-12</span>
+          </label>
+          <div class="guestsChilds">
+            <button class="plusminus" (click)="handleGuestsMinus()">-</button>
+            <input type="number" name="children" class="num" value="0" formControlName="guestsChilds"/>
+            <button class="plusminus" (click)="handleGuestsPlus()">+</button>
+          </div>
+        </div>
+      </div>
+
+      <div class="searchBtn">
+        <button type="submit" [disabled]="!searchForm.valid">
+          <span class="material-icons-round pink">search</span>
+          <span class="buttonText">Search</span>
+        </button>
+      </div>
+
+    </form>
+  </div>
+</div>
