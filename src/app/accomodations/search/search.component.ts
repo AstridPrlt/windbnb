@@ -31,7 +31,7 @@ export class SearchComponent implements OnInit {
     this.citiesCount = this.listCities.length;
 
     const searchContainer = document.getElementById("searchContainer");
-    searchContainer != null ? searchContainer.style.height = `calc(175px + 39px * ${this.citiesCount})` : 'auto';
+    searchContainer != null ? searchContainer.style.height = `calc(175px + 37px * ${this.citiesCount})` : 'auto';
   }
 
   handleGuestsMinus() {

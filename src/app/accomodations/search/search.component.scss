@@ -7,8 +7,7 @@
   width: 100%;
   z-index: 10;
   background-color: white;
-  border-bottom: 2px solid grey;
-  padding: 6.5vw 6.5vw 3vw;
+  padding: 6.5vw 6.5vw 2vw;
   font-family: $fontMulish;
 }
 
@@ -23,6 +22,7 @@ form {
   display: grid;
   position: relative;
   color: $darkGray;
+  border-right: 1px solid #F2F2F2;
   .locations {
     position: absolute;
     top: 100%;
@@ -59,10 +59,28 @@ form {
 .guests {
   // display: grid;
   position: relative;
+  border-right: 1px solid #F2F2F2;
   .guestsDetails {
     // display: grid;
     position: absolute;
     top: 100%;
+    padding-left: 15px;
+    label {
+      display: block;
+      margin-top: 50px;
+      font-size: 1.4rem;
+      span {
+        display: block;
+        line-height: 17.57px;
+        &:first-of-type {
+          font-weight: 700;
+        }
+        &:last-of-type {
+          color: $lightGrey;
+          margin-bottom: 12px;
+        }
+      }
+    }
   }
 }
 
@@ -85,11 +103,12 @@ input[type=number]::-webkit-outer-spin-button {
 .num {
   width: 35px;
   text-align: center;
+  font-weight: 700;
 }
 
 .searchBtn {
   text-align: center;
-
+  align-self: center;
   button {
     border: none;
     background-color: $pink;
