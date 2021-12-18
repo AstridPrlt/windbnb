@@ -1,15 +1,18 @@
-<div id="searchContainer">
-  <div class="searchForm">
+<div id="searchContainer" class="small">
 
+  <button type="button" id="closeBtn" (click)="closeSearchForm()">
+    <span class="material-icons">close</span>
+  </button>
 
+  <div class="searchForm"  (click)="openSearchForm()">
     <form (ngSubmit)="searchSubmit()" [formGroup]="searchForm">
 
-      <div class="location">
+      <div id="location" class="formField" (click)="toggleActive('location')">
         <div class="searchField">
           <span>LOCATION</span>
-          <input class="inputSelect" type="text" value="All" formControlName="location">
+          <input class="inputSelect" type="text" value="All" readonly formControlName="location">
         </div>
-        <div class="locations">
+        <div class="details">
             <li *ngFor="let item of listCities"><span class="material-icons">place</span>{{ item }}</li>
         </div>
         <!-- <label for="location-select">Location</label>
@@ -20,12 +23,12 @@
         </select> -->
       </div>
 
-      <div class="guests">
+      <div id="guests" class="formField" (click)="toggleActive('guests')">
         <div class="searchField">
           <span>GUESTS</span>
-          <input class="inputSelect" type="text" value="Add guests">
+          <input class="inputSelect" type="text" value="Add guests" readonly>
         </div>
-        <div class="guestsDetails">
+        <div class="details">
           <label for="adults">
             <span>Adults</span>
             <span>Ages 13 or above</span>

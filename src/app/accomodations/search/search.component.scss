@@ -2,34 +2,35 @@
 
 #searchContainer {
   position: absolute;
-  top: 0;
-  right: 0;
-  width: 100%;
-  z-index: 10;
   background-color: white;
-  padding: 6.5vw 6.5vw 2vw;
   font-family: $fontMulish;
-}
 
-form {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  box-shadow: 0px 1px 6px rgba(0, 0, 0, 0.1);
-  border-radius: 16px;
-}
+  form {
+    display: grid;
+    box-shadow: 0px 1px 6px rgba(0, 0, 0, 0.1);
+    border-radius: 16px;
+  }
 
-.location {
-  display: grid;
-  position: relative;
-  color: $darkGray;
-  border-right: 1px solid #F2F2F2;
-  .locations {
-    position: absolute;
-    top: 100%;
+  .formField {
+    position: relative;
+    color: $darkGray;
+    border-right: 1px solid #F2F2F2;
+
+    .details {
+      position: absolute;
+      // top: 100%;
+      padding-left: 15px;
+      &.hide {
+        display: none;
+      }
+    }
+  }
+
+  #location {
     li {
       list-style: none;
       font-size: 1.4rem;
-      padding: 10px 26px;
+      padding: 10px 0;
       span {
         vertical-align: bottom;
         font-size: 1.9rem;
@@ -37,34 +38,8 @@ form {
       }
     }
   }
-}
 
-.searchField {
-  width: 100%;
-  border: 1px solid #333333;
-  filter: drop-shadow(0px 1px 6px rgba(0, 0, 0, 0.1));
-  border-radius: 16px;
-  padding: 10px 26px;
-  span {
-    display: block;
-    font-size: 0.9rem;
-    font-weight: 800;
-  }
-  input {
-    border: none;
-    background: transparent;
-  }
-}
-
-.guests {
-  // display: grid;
-  position: relative;
-  border-right: 1px solid #F2F2F2;
-  .guestsDetails {
-    // display: grid;
-    position: absolute;
-    top: 100%;
-    padding-left: 15px;
+  #guests {
     label {
       display: block;
       margin-top: 50px;
@@ -82,8 +57,65 @@ form {
       }
     }
   }
+
+  .searchField {
+    filter: drop-shadow(0px 1px 6px rgba(0, 0, 0, 0.1));
+    border-radius: 16px;
+    padding: 10px 26px;
+    span {
+      display: block;
+      font-size: 0.9rem;
+      font-weight: 800;
+    }
+    input {
+      border: none;
+      outline: none;
+      background: transparent;
+    }
+  }
 }
 
+#searchContainer.small {
+  top: 30px;
+  right: 6.7vw;
+  width: 300px;
+
+  form {
+    grid-template-columns: 150px 100px 50px;
+  }
+  #closeBtn {
+    display: none;
+  }
+  .details {
+    display: none;
+  }
+}
+
+#searchContainer.large {
+  top: 0;
+  right: 0;
+  width: 100%;
+  padding: 6.5vw 6.5vw 2vw;
+
+  form {
+    grid-template-columns: repeat(3, 1fr);
+  }
+  #closeBtn {
+    background: transparent;
+    border: none;
+    position: absolute;
+    top: 15px;
+    right: 25px;
+    cursor: pointer;
+    span {
+      color: $lightGrey;
+    }
+  }
+
+  .formField.active .searchField {
+    border: 1px solid #333333;
+  }
+}
 
 input[type="number"] {
   border: none;
