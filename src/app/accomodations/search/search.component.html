@@ -50,9 +50,12 @@
         </div>
       </div>
 
-      <div class="searchBtn">
-        <button type="submit" [disabled]="!searchForm.valid">
+      <div *ngIf="isSearchContainerSmall"  class="searchBtn">
           <span class="material-icons-round pink">search</span>
+      </div>
+      <div *ngIf="!isSearchContainerSmall" class="searchBtn">
+        <button type="submit" [disabled]="!searchForm.valid">
+          <span class="material-icons-round">search</span>
           <span class="buttonText">Search</span>
         </button>
       </div>

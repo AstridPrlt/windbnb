@@ -53,7 +53,7 @@ export class SearchComponent implements OnInit {
     // this.guests?.children.item(1)?.classList.add('hide');
     this.searchContainer?.classList.add('small');
     this.searchContainer?.classList.remove('large');
-    this.searchContainer!.style.height = 'auto';
+    this.searchContainer!.style.height = '55px';
     this.isSearchContainerSmall = true;
   }
 
