@@ -2,97 +2,91 @@
 
 #searchContainer {
   position: absolute;
+  z-index: 20;
   background-color: white;
   font-family: $fontMulish;
-  transition: all 0.7s;
 
-  form {
-    display: grid;
-    box-shadow: 0px 1px 6px rgba(0, 0, 0, 0.1);
-    border-radius: 16px;
-  }
+  .searchForm {
+    height: 100%;
+    form {
+      display: grid;
+      box-shadow: 0px 1px 6px rgba(0, 0, 0, 0.1);
+      border-radius: 16px;
+    }
 
-  .formField {
-    position: relative;
-    color: $darkGray;
-    border-right: 1px solid #F2F2F2;
+    .formField {
+      position: relative;
+      color: $darkGray;
+      border-right: 1px solid #F2F2F2;
+    }
 
-    .details {
-      position: absolute;
-      // top: 100%;
-      padding-left: 15px;
-      &.hide {
-        display: none;
+    #location {
+      li {
+        list-style: none;
+        font-size: 1.4rem;
+        padding: 10px 0;
+        span {
+          vertical-align: bottom;
+          font-size: 1.9rem;
+          margin-right: 10px;
+        }
       }
     }
-  }
 
-  #location {
-    li {
-      list-style: none;
-      font-size: 1.4rem;
-      padding: 10px 0;
-      span {
-        vertical-align: bottom;
-        font-size: 1.9rem;
-        margin-right: 10px;
+    #guests {
+      label {
+        display: block;
+        margin-top: 50px;
+        font-size: 1.4rem;
+        span {
+          display: block;
+          line-height: 17.57px;
+          &:first-of-type {
+            font-weight: 700;
+          }
+          &:last-of-type {
+            color: $lightGrey;
+            margin-bottom: 12px;
+          }
+        }
       }
     }
-  }
 
-  #guests {
-    label {
-      display: block;
-      margin-top: 50px;
-      font-size: 1.4rem;
+    .searchField {
+      filter: drop-shadow(0px 1px 6px rgba(0, 0, 0, 0.1));
+      border-radius: 16px;
+      padding: 10px 26px;
       span {
         display: block;
-        line-height: 17.57px;
-        &:first-of-type {
-          font-weight: 700;
-        }
-        &:last-of-type {
-          color: $lightGrey;
-          margin-bottom: 12px;
-        }
+        font-size: 0.9rem;
+        font-weight: 800;
+      }
+      input {
+        border: none;
+        outline: none;
+        background: transparent;
       }
     }
-  }
 
-  .searchField {
-    filter: drop-shadow(0px 1px 6px rgba(0, 0, 0, 0.1));
-    border-radius: 16px;
-    padding: 10px 26px;
-    span {
-      display: block;
-      font-size: 0.9rem;
-      font-weight: 800;
-    }
-    input {
-      border: none;
-      outline: none;
-      background: transparent;
+    .searchBtn {
+      text-align: center;
+      align-self: center;
     }
   }
-
-  .searchBtn {
-    text-align: center;
-    align-self: center;
   }
-}
 
-#searchContainer.small {
+  #searchContainer.small {
   top: 30px;
   right: 6.7vw;
-  width: 300px;
-  height: 55px;
+  // width: 300px;
+  // height: 55px;
 
   #closeBtn {
     display: none;
   }
 
   .searchForm {
-    height: 55px;
+    height: 100%;
     form {
       height: 100%;
       grid-template-columns: 150px 100px 50px;
@@ -116,6 +110,7 @@
       }
       .details {
         display: none;
+        // transform: scale(0);
       }
     }
     .searchBtn {
@@ -131,10 +126,10 @@
 #searchContainer.large {
   top: 0;
   right: 0;
-  width: 100%;
   padding: 6.5vw 6.5vw 2vw;
 
   #closeBtn {
+    display: block;
     background: transparent;
     border: none;
     position: absolute;
@@ -152,10 +147,18 @@
 
   .formField.active .searchField {
     border: 1px solid #333333;
+    height: 100%;
   }
 
   .formField {
     .details {
+      // transform: scaleY(1);
+      position: absolute;
+      // top: 100%;
+      padding-left: 15px;
+      &.hide {
+        display: none;
+      }
       input[type="number"] {
         border: none;
       }

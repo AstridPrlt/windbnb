@@ -1,10 +1,13 @@
 <div class="accomodations">
+
+
   <a routerLink="/">
     <img src="assets/logo.png" alt="windbnb logo">
   </a>
 
-  <app-list [list]='list'></app-list>
+  <app-list [list]="list"></app-list>
 
-  <app-search [listAcc]='list'></app-search>
+  <app-search [listAcc]="list" (toggleSearchFormEvent)="searchFormState($event)"></app-search>
 
+  <div [@layerTransition]="isSearchFormOpened ? 'open' : 'closed'" id="darkLayer"></div>
 </div>

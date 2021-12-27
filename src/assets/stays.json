@@ -22,7 +22,7 @@
     "photo": "https://images.unsplash.com/photo-1554995207-c18c203602cb?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=2250&q=80"
   },
   {
-    "city": "Chambery",
+    "city": "Annecy",
     "country": "France",
     "superHost": true,
     "title": "Arty interior in 1900 wooden house",
@@ -77,7 +77,7 @@
     "photo": "https://images.unsplash.com/photo-1505693314120-0d443867891c?ixlib=rb-1.2.1&auto=format&fit=crop&w=2591&q=80"
   },
   {
-    "city": "Fontainebleau",
+    "city": "Vincennes",
     "country": "France",
     "superHost": false,
     "title": "Peaceful little home in city center",
@@ -99,7 +99,7 @@
     "photo": "https://images.unsplash.com/photo-1507089947368-19c1da9775ae?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=2255&q=80"
   },
   {
-    "city": "Grenoble",
+    "city": "Annecy",
     "country": "France",
     "superHost": true,
     "title": "Cozy woodhouse flat with wooden sauna",
@@ -110,7 +110,7 @@
     "photo": "https://images.unsplash.com/photo-1522156373667-4c7234bbd804?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjF9&auto=format&fit=crop&w=930&q=80"
   },
   {
-    "city": "Le Havre",
+    "city": "Deauville",
     "country": "France",
     "superHost": false,
     "title": "Brand new studio apartment near the harbour",
