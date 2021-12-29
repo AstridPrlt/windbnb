@@ -41,9 +41,16 @@ export class AccomodationsComponent implements OnInit {
     this.isSearchFormOpened = !event;
   }
 
-  filter(cityChosen: string) {
-    let filteredList = this.list.filter(c => c.city == cityChosen);
-    cityChosen == '' ? this.listToShow = this.list : this.listToShow = filteredList;
+  filter(filtersInput: Array<any>) {
+    let filterByCity = filtersInput[0];
+    let filterByPeople = filtersInput[1];
+    if (filterByCity == '') {
+      this.listToShow = this.list.filter(c => c.maxGuests >= filterByPeople);
+    } else {
+      this.listToShow = this.list.filter(c => c.city == filterByCity && c.maxGuests >= filterByPeople);
+    }
+    // let filteredList = this.list.filter(c => c.city == filterByCity && c.maxGuests >= filterByPeople);
+    // filterByCity == '' ? this.listToShow = this.list : this.listToShow = filteredList;
   }
 
 }

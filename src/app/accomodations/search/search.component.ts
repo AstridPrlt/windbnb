@@ -1,6 +1,6 @@
 import { animate, animateChild, group, query, state, style, transition, trigger } from '@angular/animations';
 import { Component, ElementRef, EventEmitter, Input, OnInit, Output, Renderer2, ViewChild } from '@angular/core';
-import { FormBuilder } from '@angular/forms';
+import { FormBuilder, Validators } from '@angular/forms';
 import { HomeItem } from 'src/app/_models/home-item.model';
 
 @Component({
@@ -50,7 +50,7 @@ export class SearchComponent implements OnInit {
   listAcc!: HomeItem[];
 
   @Output() toggleSearchFormEvent = new EventEmitter<boolean>();
-  @Output() filterAccomodations = new EventEmitter<string>();
+  @Output() filterAccomodations = new EventEmitter<any>();
 
   listCities!: string[];
   citiesCount: number = 0;
@@ -65,8 +65,8 @@ export class SearchComponent implements OnInit {
 
   searchForm = this.fb.group({
     locationCity: [""],
-    guestsAdults: ["1"],
-    guestsChilds: ["0"]
+    guestsAdults: [1, Validators.min(1)],
+    guestsChildren: [0]
   })
 
   constructor(private fb: FormBuilder, private _renderer: Renderer2) { }
@@ -113,23 +113,32 @@ export class SearchComponent implements OnInit {
 
   chooseCity(city: string): void {
     this.searchForm.patchValue({locationCity: city});
-    // this.filterAccomodations.emit(city);
   }
   cancelCity(): void {
     this.searchForm.patchValue({locationCity: ''});
-    // this.filterAccomodations.emit('');
   }
 
-  handleGuestsMinus() {
-
+  handleGuestsMinus(adultsOrChildren: string) {
+    if(adultsOrChildren == 'guestsAdults') {
+      if(this.searchForm.get('guestsAdults')?.value > 1) {
+        this.searchForm.patchValue({guestsAdults: this.searchForm.get('guestsAdults')?.value-1})
+      }
+    }
+    if (adultsOrChildren == 'guestsChildren') {
+      if (this.searchForm.get('guestsChildren')?.value > 0) {
+        this.searchForm.patchValue({guestsChildren: this.searchForm.get('guestsChildren')?.value-1})
+      }
+    }
   }
 
-  handleGuestsPlus() {
-
+  handleGuestsPlus(adultsOrChildren: string) {
+    adultsOrChildren == 'guestsAdults' ? this.searchForm.patchValue({guestsAdults: this.searchForm.get('guestsAdults')?.value+1}) : this.searchForm.patchValue({guestsChildren: this.searchForm.get('guestsChildren')?.value+1})
   }
 
   searchSubmit() {
-    this.filterAccomodations.emit(this.searchForm.get('locationCity')?.value);
+    let guestsNumber = this.searchForm.get('guestsAdults')?.value + this.searchForm.get('guestsChildren')?.value;
+    let filter = [this.searchForm.get('locationCity')?.value, guestsNumber]
+    this.filterAccomodations.emit(filter);
     this.closeSearchForm();
   }
 }

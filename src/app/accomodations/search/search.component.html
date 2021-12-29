@@ -16,12 +16,6 @@
         <div #locationDetails class="details">
             <li *ngFor="let item of listCities" (click)="chooseCity(item)"><span class="material-icons">place</span>{{ item }}</li>
         </div>
-        <!-- <label for="location-select">Location</label>
-        <select name="locationCities" id="location-select" formControlName="location">
-          <option value="">All</option>
-          <option *ngFor="let city of listCities" value="{{city}}">
-            {{city}}</option>
-        </select> -->
       </div>
 
       <div #guests id="guests" class="formField" (click)="toggleActive('guests')">
@@ -35,18 +29,18 @@
             <span>Ages 13 or above</span>
           </label>
           <div class="guestsAdults">
-            <button class="plusminus" (click)="handleGuestsMinus()">-</button>
-            <input type="number" name="adults" class="num" value="0" formControlName="guestsAdults"/>
-            <button class="plusminus" (click)="handleGuestsPlus()">+</button>
+            <button type="button" class="plusminus" (click)="handleGuestsMinus('guestsAdults')">-</button>
+            <input type="number" name="adults" class="num" min="1" formControlName="guestsAdults"/>
+            <button type="button" class="plusminus" (click)="handleGuestsPlus('guestsAdults')">+</button>
           </div>
           <label for="children">
             <span>Children</span>
             <span>Ages 2-12</span>
           </label>
-          <div class="guestsChilds">
-            <button class="plusminus" (click)="handleGuestsMinus()">-</button>
-            <input type="number" name="children" class="num" value="0" formControlName="guestsChilds"/>
-            <button class="plusminus" (click)="handleGuestsPlus()">+</button>
+          <div class="guestsChildren">
+            <button type="button" class="plusminus" (click)="handleGuestsMinus('guestsChildren')">-</button>
+            <input type="number" name="children" class="num" min="0" formControlName="guestsChildren"/>
+            <button type="button" class="plusminus" (click)="handleGuestsPlus('guestsChildren')">+</button>
           </div>
         </div>
       </div>
