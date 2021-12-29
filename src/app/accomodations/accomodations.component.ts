@@ -27,15 +27,23 @@ export class AccomodationsComponent implements OnInit {
 
   list: HomeItem[] = DataJson;
 
+  listToShow!: HomeItem[];
+
   isSearchFormOpened: boolean = false;
 
   constructor() { }
 
   ngOnInit(): void {
+    this.listToShow = this.list;
   }
 
   searchFormState(event: boolean): void {
     this.isSearchFormOpened = !event;
+  }
+
+  filter(cityChosen: string) {
+    let filteredList = this.list.filter(c => c.city == cityChosen);
+    cityChosen == '' ? this.listToShow = this.list : this.listToShow = filteredList;
   }
 
 }

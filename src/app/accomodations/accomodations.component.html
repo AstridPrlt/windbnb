@@ -1,13 +1,16 @@
 <div class="accomodations">
 
+  <div [@layerTransition]="isSearchFormOpened ? 'open' : 'closed'" id="darkLayer"></div>
 
   <a routerLink="/">
     <img src="assets/logo.png" alt="windbnb logo">
   </a>
 
-  <app-list [list]="list"></app-list>
+  <app-list [list]="listToShow"></app-list>
 
-  <app-search [listAcc]="list" (toggleSearchFormEvent)="searchFormState($event)"></app-search>
+  <app-search [listAcc]="list"
+              (toggleSearchFormEvent)="searchFormState($event)"
+              (filterAccomodations)="filter($event)">
+  </app-search>
 
-  <div [@layerTransition]="isSearchFormOpened ? 'open' : 'closed'" id="darkLayer"></div>
 </div>

@@ -10,10 +10,11 @@
       <div #location id="location" class="formField" (click)="toggleActive('location')">
         <div class="searchField">
           <span>LOCATION</span>
-          <input class="inputSelect" type="text" value="All" readonly formControlName="location">
+          <input class="inputSelect" type="text" placeholder="Pick a destination" formControlName="locationCity">
+          <span id="cancelCity" class="material-icons" *ngIf="searchForm.controls['locationCity'].value !== ''" (click)="cancelCity()">cancel</span>
         </div>
         <div #locationDetails class="details">
-            <li *ngFor="let item of listCities"><span class="material-icons">place</span>{{ item }}</li>
+            <li *ngFor="let item of listCities" (click)="chooseCity(item)"><span class="material-icons">place</span>{{ item }}</li>
         </div>
         <!-- <label for="location-select">Location</label>
         <select name="locationCities" id="location-select" formControlName="location">

@@ -9,9 +9,7 @@ import DataJson from '../../../assets/stays.json';
 })
 
 export class ListComponent implements OnInit {
-  // list: HomeItem[] = DataJson;
 
-  // list: HomeItem[] = DataJson;
   @Input()
   list!: HomeItem[];
 

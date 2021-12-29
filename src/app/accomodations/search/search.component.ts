@@ -50,6 +50,7 @@ export class SearchComponent implements OnInit {
   listAcc!: HomeItem[];
 
   @Output() toggleSearchFormEvent = new EventEmitter<boolean>();
+  @Output() filterAccomodations = new EventEmitter<string>();
 
   listCities!: string[];
   citiesCount: number = 0;
@@ -63,7 +64,7 @@ export class SearchComponent implements OnInit {
   @ViewChild("guestsDetails") guestsDetails!: ElementRef;
 
   searchForm = this.fb.group({
-    location: ["All"],
+    locationCity: [""],
     guestsAdults: ["1"],
     guestsChilds: ["0"]
   })
@@ -110,6 +111,15 @@ export class SearchComponent implements OnInit {
     }
   }
 
+  chooseCity(city: string): void {
+    this.searchForm.patchValue({locationCity: city});
+    // this.filterAccomodations.emit(city);
+  }
+  cancelCity(): void {
+    this.searchForm.patchValue({locationCity: ''});
+    // this.filterAccomodations.emit('');
+  }
+
   handleGuestsMinus() {
 
   }
@@ -119,6 +129,7 @@ export class SearchComponent implements OnInit {
   }
 
   searchSubmit() {
-
+    this.filterAccomodations.emit(this.searchForm.get('locationCity')?.value);
+    this.closeSearchForm();
   }
 }
