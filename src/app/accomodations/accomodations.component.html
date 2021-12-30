@@ -6,11 +6,10 @@
     <img src="assets/logo.png" alt="windbnb logo">
   </a>
 
-  <app-list [list]="listToShow"></app-list>
-
   <app-search [listAcc]="list"
               (toggleSearchFormEvent)="searchFormState($event)"
               (filterAccomodations)="filter($event)">
   </app-search>
 
+  <app-list [list]="listToShow"></app-list>
 </div>

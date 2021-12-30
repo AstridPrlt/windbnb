@@ -17,7 +17,8 @@
     }
 
     .details {
-      height: 55px;
+      // height: 55px;
+      height: 14%;
       display: flex;
       align-items: center;
       position: relative;
@@ -58,5 +59,21 @@
       font-weight: 600;
       font-size: 1.6rem;
     }
+  }
+}
+
+button.toggleMap {
+  position: fixed;
+  bottom: 5%;
+  padding: 12px 15px;
+  border: none;
+  border-radius: 24px;
+  background-color: $pink;
+  color: $snowWhite;
+  font-weight: bold;
+  cursor: pointer;
+  span {
+    font-size: initial;
+    vertical-align: bottom;
   }
 }

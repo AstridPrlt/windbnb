@@ -14,7 +14,8 @@ $darkGray: #4F4F4F;
 $lightGrey: #828282;
 
 html {
-  font-size: 62.5%;
+  // font-size: 62.5%;
+  font-size: clamp(6.25px, 0.7vw, 50px);
   font-family: $fontMontserrat;
 }
 
