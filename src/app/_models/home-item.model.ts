@@ -1,6 +1,7 @@
 export interface HomeItem {
     city: string;
     country: string;
+    coord: [number, number];
     superHost: boolean;
     title: string;
     rating: number;

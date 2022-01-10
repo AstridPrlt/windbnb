@@ -2,31 +2,33 @@
 
 .list {
   margin-top: 85px;
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  gap: 50px 2.3vw;
 
-  .homeItem {
-    width: 27.2vw;
-    img {
-      width: 100%;
-      height: calc((27.5vw)*(68/100));
-      object-fit: cover;
-      border-radius: 24px;
-    }
+  .homeList {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 50px 2.3vw;
 
-    .details {
-      // height: 55px;
-      height: 14%;
-      display: flex;
-      align-items: center;
-      position: relative;
-      .superhost {
-        display: inline-block;
-        margin-right: 10px;
-        padding: 6px 10px;
-        border: 1px solid $darkGray;
+    .homeItem {
+      width: 27.2vw;
+      img {
+        width: 100%;
+        height: calc((27.5vw)*(68/100));
+        object-fit: cover;
+        border-radius: 24px;
+      }
+
+      .details {
+        // height: 55px;
+        height: 14%;
+        display: flex;
+        align-items: center;
+        position: relative;
+        .superhost {
+          display: inline-block;
+          margin-right: 10px;
+          padding: 6px 10px;
+          border: 1px solid $darkGray;
         border-radius: 12px;
         color: $darkGray;
         font-weight: 700;
@@ -62,18 +64,36 @@
   }
 }
 
-button.toggleMap {
-  position: fixed;
-  bottom: 5%;
-  padding: 12px 15px;
-  border: none;
-  border-radius: 24px;
-  background-color: $pink;
-  color: $snowWhite;
-  font-weight: bold;
-  cursor: pointer;
-  span {
-    font-size: initial;
-    vertical-align: bottom;
+  button.toggleMap {
+    position: fixed;
+    z-index: 100;
+    bottom: 5%;
+    left: 50%;
+    transform: translateX(-50%);
+    padding: 12px 15px;
+    border: none;
+    border-radius: 24px;
+    background-color: $pink;
+    color: $snowWhite;
+    font-weight: bold;
+    cursor: pointer;
+    span {
+      font-size: initial;
+      vertical-align: bottom;
+    }
   }
+
+  #mapbox {
+    display: none;
+    width: 100%;
+    height: 75vh;
+    .mapboxgl-canvas {
+      width: 100%;
+      height: 100%;
+      .mapboxStyle {
+        cursor: pointer;
+      }
+    }
+  }
+
 }

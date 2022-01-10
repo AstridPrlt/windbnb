@@ -25,7 +25,7 @@ import { trigger, state, style, animate, transition } from '@angular/animations'
 })
 export class AccomodationsComponent implements OnInit {
 
-  list: HomeItem[] = DataJson;
+  list: any[] = DataJson;
 
   listToShow!: HomeItem[];
 
@@ -49,8 +49,6 @@ export class AccomodationsComponent implements OnInit {
     } else {
       this.listToShow = this.list.filter(c => c.city == filterByCity && c.maxGuests >= filterByPeople);
     }
-    // let filteredList = this.list.filter(c => c.city == filterByCity && c.maxGuests >= filterByPeople);
-    // filterByCity == '' ? this.listToShow = this.list : this.listToShow = filteredList;
   }
 
 }
