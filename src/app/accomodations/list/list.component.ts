@@ -51,9 +51,18 @@ export class ListComponent implements OnInit {
     });
     this.map.addControl(new mapboxgl.NavigationControl());
 
+
     this.list.forEach(i => {
-      const popup = new mapboxgl.Popup({ offset: 25 }).setText(i.title);
-      const marker = new mapboxgl.Marker()
+      const el: HTMLElement = this._renderer.createElement('div');
+      el.classList.add('marker');
+
+      const popup = new mapboxgl.Popup({ offset: 25, anchor: 'left' }).setHTML(
+        `<img src="${i.photo}" alt="picture of the home" style="width: 100%; height: 70%;
+    object-fit: cover;">
+        <h4>${i.title}</h4>`
+        );
+
+      new mapboxgl.Marker(el)
       .setLngLat([i.coord[0], i.coord[1]])
       .setPopup(popup)
       .addTo(this.map);
