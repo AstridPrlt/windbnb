@@ -1,6 +1,6 @@
 import { animate, animateChild, group, query, state, style, transition, trigger } from '@angular/animations';
 import { Component, ElementRef, EventEmitter, Input, OnInit, Output, Renderer2, ViewChild } from '@angular/core';
-import { FormBuilder, Validators } from '@angular/forms';
+import { UntypedFormBuilder, Validators } from '@angular/forms';
 import { HomeItem } from 'src/app/_models/home-item.model';
 
 @Component({
@@ -69,7 +69,7 @@ export class SearchComponent implements OnInit {
     guestsChildren: [0]
   })
 
-  constructor(private fb: FormBuilder, private _renderer: Renderer2) { }
+  constructor(private fb: UntypedFormBuilder, private _renderer: Renderer2) { }
 
   ngOnInit(): void {
     this.listAcc;
