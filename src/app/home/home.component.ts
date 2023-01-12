@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { ApiAirbnbResults, Records } from '../_models/api-airbnb-results.model';
+import { WindbnbServiceService } from '../_services/windbnb-service.service';
 
 @Component({
   selector: 'app-home',
@@ -6,10 +8,21 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./home.component.scss']
 })
 export class HomeComponent implements OnInit {
+  resultsListApi!: Records[];
 
-  constructor() { }
+  constructor(private service: WindbnbServiceService) { }
 
   ngOnInit(): void {
+    this.getAirbnbListingAPI();
+  }
+
+  getAirbnbListingAPI(): void {
+    this.service.getApiListing().subscribe({
+      next: (result: ApiAirbnbResults) => {
+        this.resultsListApi = result.records;
+        console.log(result.records)
+      },
+    })
   }
 
 }

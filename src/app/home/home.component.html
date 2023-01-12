@@ -11,3 +11,11 @@
 
 
 </main>
+
+<section>
+  <div>
+    <div *ngFor="let item of resultsListApi">
+      <span>{{item.record.fields.name}}</span>
+    </div>
+  </div>
+</section>
