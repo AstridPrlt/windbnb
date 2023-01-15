@@ -12,6 +12,6 @@ export class CardAccomodationComponent {
   @Input() unsplashImage!: string;
 
   ngOnInit(): void {
-    console.log(this.dataForCard, this.unsplashImage);
+    console.log(this.dataForCard);
   }
 }

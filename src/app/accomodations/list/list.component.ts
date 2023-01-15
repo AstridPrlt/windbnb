@@ -30,12 +30,9 @@ export class ListComponent implements OnInit {
   constructor(private _renderer: Renderer2) {}
 
   ngOnInit(): void {
-    console.log(this.list);
     this.createMap();
 
     this.imagesUrl = UnsplashImagesJson.map(i => i.urls.small)
-    console.log(this.imagesUrl);
-
   }
 
   toggleTo(format: string) {

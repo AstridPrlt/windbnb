@@ -3,11 +3,11 @@
     <img [src]="unsplashImage" alt="picture of the home">
     <div class="image"></div>
     <div class="details">
-      <span class="superhost">SUPER HOST</span>
-      <span class="type">Entire apartment . 2 beds</span>
-      <div class="rating">
+      <span class="superhost" *ngIf="dataForCard.fields.features.includes('Host Is Superhost')">SUPER HOST</span>
+      <span class="type">{{dataForCard.fields.room_type == "Private room" ? "Chambre privée" : "Logement entier"}} - {{dataForCard.fields.zipcode}}</span>
+      <div class="rating" *ngIf="dataForCard.fields.review_scores_value">
         <span class="material-icons-round pink">star_rate_rounded</span>
-        <span class="rate">4.4</span>
+        <span class="rate">{{dataForCard.fields.review_scores_value / 2}} ({{dataForCard.fields.number_of_reviews}})</span>
       </div>
     </div>
     <h4>{{dataForCard.fields.name}}</h4>

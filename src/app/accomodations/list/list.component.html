@@ -1,7 +1,7 @@
 <div class="list">
 
   <div class="homeList" #homeList>
-    <div class="homeItem" *ngFor="let item of list">
+    <!-- <div class="homeItem" *ngFor="let item of list">
       <img [src]="item.photo" alt="picture of the home">
       <div class="details">
         <span *ngIf="item.superHost" class="superhost">SUPER HOST</span>
@@ -12,7 +12,7 @@
         </div>
       </div>
       <h4>{{ item.title }}</h4>
-    </div>
+    </div> -->
     <button *ngIf="listOrMap == 'list'" class="toggleMap" type="button" (click)="toggleTo('map')">
       Show on map <span class="material-icons-outlined">map</span>
     </button>
