@@ -16,7 +16,13 @@
     <button *ngIf="listOrMap == 'list'" class="toggleMap" type="button" (click)="toggleTo('map')">
       Show on map <span class="material-icons-outlined">map</span>
     </button>
+    <div *ngFor="let item of apiList, let index = index">
+      <app-card-accomodation [dataForCard]="item.record" [unsplashImage]="imagesUrl[index]">
+
+      </app-card-accomodation>
+    </div>
   </div>
+
 
 
   <div id="mapbox" #mapbox>

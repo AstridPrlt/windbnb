@@ -2,6 +2,8 @@ import { Component, ElementRef, Input, OnInit, Renderer2, ViewChild } from '@ang
 import { HomeItem } from 'src/app/_models/home-item.model';
 import { environment } from 'src/environments/environment';
 import mapboxgl from 'mapbox-gl';
+import { Records } from 'src/app/_models/api-airbnb-results.model';
+import UnsplashImagesJson from '../../../assets/unsplashImages.json';
 
 @Component({
   selector: 'app-list',
@@ -13,6 +15,10 @@ export class ListComponent implements OnInit {
 
   @Input()
   list!: HomeItem[];
+  @Input()
+  apiList!: Records[];
+
+  imagesUrl: string[] = [];
 
   map: any;
 
@@ -26,6 +32,10 @@ export class ListComponent implements OnInit {
   ngOnInit(): void {
     console.log(this.list);
     this.createMap();
+
+    this.imagesUrl = UnsplashImagesJson.map(i => i.urls.small)
+    console.log(this.imagesUrl);
+
   }
 
   toggleTo(format: string) {

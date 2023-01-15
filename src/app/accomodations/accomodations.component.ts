@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { HomeItem } from 'src/app/_models/home-item.model';
 import DataJson from '../../assets/stays.json';
 import { trigger, state, style, animate, transition } from '@angular/animations';
+import { ApiAirbnbResults, Records } from '../_models/api-airbnb-results.model';
+import { WindbnbServiceService } from '../_services/windbnb-service.service';
 
 @Component({
   selector: 'app-accomodations',
@@ -28,13 +30,15 @@ export class AccomodationsComponent implements OnInit {
   list: any[] = DataJson;
 
   listToShow!: HomeItem[];
+  resultsListApi!: Records[];
 
   isSearchFormOpened: boolean = false;
 
-  constructor() { }
+  constructor(private service: WindbnbServiceService) { }
 
   ngOnInit(): void {
     this.listToShow = this.list;
+    this.getAirbnbListingAPI();
   }
 
   searchFormState(event: boolean): void {
@@ -49,6 +53,15 @@ export class AccomodationsComponent implements OnInit {
     } else {
       this.listToShow = this.list.filter(c => c.city == filterByCity && c.maxGuests >= filterByPeople);
     }
+  }
+
+  getAirbnbListingAPI(): void {
+    this.service.getApiListing().subscribe({
+      next: (result: ApiAirbnbResults) => {
+        this.resultsListApi = result.records;
+        // console.log(result.records)
+      },
+    })
   }
 
 }

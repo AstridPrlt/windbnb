@@ -13,16 +13,16 @@ export class HomeComponent implements OnInit {
   constructor(private service: WindbnbServiceService) { }
 
   ngOnInit(): void {
-    this.getAirbnbListingAPI();
+    // this.getAirbnbListingAPI();
   }
 
-  getAirbnbListingAPI(): void {
-    this.service.getApiListing().subscribe({
-      next: (result: ApiAirbnbResults) => {
-        this.resultsListApi = result.records;
-        console.log(result.records)
-      },
-    })
-  }
+  // getAirbnbListingAPI(): void {
+  //   this.service.getApiListing().subscribe({
+  //     next: (result: ApiAirbnbResults) => {
+  //       this.resultsListApi = result.records;
+  //       console.log(result.records)
+  //     },
+  //   })
+  // }
 
 }
