@@ -1,0 +1,13 @@
+<div *ngIf="details$ | async as details">
+
+  <h1>{{details.record.fields.name}}</h1>
+
+  <p>{{details.record.fields.summary}}</p>
+
+  <ul>
+    <li *ngFor="let item of details.record.fields.amenities">
+      <span *ngIf="!item.startsWith('translation missing:')">{{item}}</span>
+    </li>
+  </ul>
+
+</div>

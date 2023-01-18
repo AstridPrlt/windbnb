@@ -6,9 +6,9 @@ export interface ApiAirbnbResults {
 
 export interface Records {
   links: any[],
-  record: Record;
+  record: RecordDetails;
 }
-export interface Record {
+export interface RecordDetails {
   fields: Fields;
   id: string;
   size: number;
@@ -125,9 +125,9 @@ export interface Fields {
   features: string[];
 }
 
-export interface RootObject {
-  id: string;
-  timestamp: Date;
-  size: number;
-  fields: Fields;
-}
+// export interface RootObject {
+//   id: string;
+//   timestamp: Date;
+//   size: number;
+//   fields: Fields;
+// }

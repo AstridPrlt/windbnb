@@ -8,6 +8,7 @@ import { ListComponent } from './list/list.component';
 import { SearchComponent } from './search/search.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { CardAccomodationComponent } from './list/card-accomodation/card-accomodation.component';
+import { AccomodationDetailsComponent } from './list/accomodation-details/accomodation-details.component';
 
 const routes: Routes = [
   { path: '', component: AccomodationsComponent }
@@ -18,7 +19,8 @@ const routes: Routes = [
     AccomodationsComponent,
     ListComponent,
     SearchComponent,
-    CardAccomodationComponent
+    CardAccomodationComponent,
+    AccomodationDetailsComponent
   ],
   imports: [
     CommonModule,

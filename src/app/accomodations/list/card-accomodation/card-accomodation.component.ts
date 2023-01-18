@@ -1,5 +1,5 @@
 import { Component, Input } from '@angular/core';
-import { Record } from 'src/app/_models/api-airbnb-results.model';
+import { RecordDetails } from 'src/app/_models/api-airbnb-results.model';
 
 @Component({
   selector: 'app-card-accomodation',
@@ -8,7 +8,7 @@ import { Record } from 'src/app/_models/api-airbnb-results.model';
 })
 export class CardAccomodationComponent {
 
-  @Input() dataForCard!: Record;
+  @Input() dataForCard!: RecordDetails;
   @Input() unsplashImage!: string;
 
   ngOnInit(): void {
