@@ -30,9 +30,10 @@ export class ListComponent implements OnInit {
   constructor(private _renderer: Renderer2) {}
 
   ngOnInit(): void {
-    this.createMap();
-
     this.imagesUrl = UnsplashImagesJson.map(i => i.urls.small)
+  }
+  ngOnChanges(): void {
+    this.createMap();
   }
 
   toggleTo(format: string) {
@@ -53,24 +54,42 @@ export class ListComponent implements OnInit {
     this.map = new mapboxgl.Map({
       container: 'mapbox', // container ID
       style: 'mapbox://styles/mapbox/streets-v11', // style URL
-      center: [0.050628, 49.45], // starting position [lng, lat]
-      zoom: 8.5 // starting zoom
+      center: [2.344075261837547, 48.857990087246385], // starting position [lng, lat]
+      zoom: 11 // starting zoom
     });
     this.map.addControl(new mapboxgl.NavigationControl());
 
 
-    this.list.forEach(i => {
+    // this.list.forEach(i => {
+
+    //   const el: HTMLElement = this._renderer.createElement('div');
+    //   el.classList.add('marker');
+
+    //   const popup = new mapboxgl.Popup({ offset: 25, anchor: 'left' }).setHTML(
+    //     `<img src="${i.photo}" alt="picture of the home" style="width: 100%; height: 70%;
+    // object-fit: cover;">
+    //     <h4>${i.title}</h4>`
+    //     );
+
+    //   new mapboxgl.Marker(el)
+    //   .setLngLat([i.coord[0], i.coord[1]])
+    //   .setPopup(popup)
+    //   .addTo(this.map);
+    // }
+    // );
+
+    this.apiList.forEach(i => {
       const el: HTMLElement = this._renderer.createElement('div');
       el.classList.add('marker');
 
       const popup = new mapboxgl.Popup({ offset: 25, anchor: 'left' }).setHTML(
-        `<img src="${i.photo}" alt="picture of the home" style="width: 100%; height: 70%;
+        `<img src="${this.imagesUrl[this.apiList.indexOf(i)]}" alt="picture of the home" style="width: 100%; height: 70%;
     object-fit: cover;">
-        <h4>${i.title}</h4>`
+        <h4><a href="accomodations/room/${i.record.id}" target="_blank">${i.record.fields.name}</a></h4>`
         );
 
       new mapboxgl.Marker(el)
-      .setLngLat([i.coord[0], i.coord[1]])
+      .setLngLat([i.record.fields.geolocation.lon, i.record.fields.geolocation.lat])
       .setPopup(popup)
       .addTo(this.map);
     }

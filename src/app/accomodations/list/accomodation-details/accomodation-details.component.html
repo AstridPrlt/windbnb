@@ -1,13 +1,37 @@
-<div *ngIf="details$ | async as details">
+<div class="detailsPage" *ngIf="details$ | async as details">
 
-  <h1>{{details.record.fields.name}}</h1>
+  <section id="titleSection">
+    <h1>{{details.record.fields.name}}</h1>
 
-  <p>{{details.record.fields.summary}}</p>
+  </section>
 
-  <ul>
-    <li *ngFor="let item of details.record.fields.amenities">
-      <span *ngIf="!item.startsWith('translation missing:')">{{item}}</span>
-    </li>
-  </ul>
+  <section id="summarySection">
+    <p>{{details.record.fields.summary}}</p>
+  </section>
+
+  <section id="roomSection">
+
+  </section>
+
+  <section id="amenitiesSection">
+    <h3>Ce que propose le logement</h3>
+    <ul>
+      <li *ngFor="let item of details.record.fields.amenities">
+        <span *ngIf="!item.startsWith('translation missing:')">{{item}}</span>
+      </li>
+    </ul>
+  </section>
+
+  <section id="ratingSection">
+
+  </section>
+
+  <section id="mapSection">
+
+  </section>
+
+  <section id="hostSection">
+
+  </section>
 
 </div>
