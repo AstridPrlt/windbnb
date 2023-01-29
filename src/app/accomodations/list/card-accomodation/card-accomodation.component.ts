@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core';
+import { Component, Input, Output } from '@angular/core';
 import { RecordDetails } from 'src/app/_models/api-airbnb-results.model';
 
 @Component({
@@ -10,8 +10,13 @@ export class CardAccomodationComponent {
 
   @Input() dataForCard!: RecordDetails;
   @Input() unsplashImage!: string;
+  @Input() indexImage!: number;
+
+  @Output() indexForImage!: number;
 
   ngOnInit(): void {
     console.log(this.dataForCard);
+
+    this.indexForImage = this.indexImage;
   }
 }

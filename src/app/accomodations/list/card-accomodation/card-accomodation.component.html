@@ -11,7 +11,7 @@
       </div>
     </div>
     <h4>
-      <a [routerLink]="['room', dataForCard.id]" target="_blank">
+      <a [routerLink]="['room', dataForCard.id]" [queryParams]="{indexImage: indexForImage}" target="_blank">
         {{dataForCard.fields.name}}
       </a>
     </h4>

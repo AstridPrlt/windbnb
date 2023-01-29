@@ -1,8 +1,14 @@
-<div class="detailsPage" *ngIf="details$ | async as details">
+<ng-template #issue>Un problème est survenu</ng-template>
+
+<div class="detailsPage" *ngIf="details$ | async as details;else issue">
 
   <section id="titleSection">
     <h1>{{details.record.fields.name}}</h1>
 
+  </section>
+
+  <section id="images">
+    <img [src]="unsplashImage" alt="">
   </section>
 
   <section id="summarySection">
@@ -10,16 +16,53 @@
   </section>
 
   <section id="roomSection">
-
+    <div class="accomodates card">
+      <span class="material-icons-round icon">person</span>
+      <span class="number">{{details.record.fields.accommodates}}</span>
+      <p>personne<span *ngIf="details.record.fields.accommodates > 1">s</span></p>
+    </div>
+    <div class="beds card">
+      <span class="material-icons-round icon">bed</span>
+      <span class="number">{{details.record.fields.beds}}</span>
+      <p>lit<span *ngIf="details.record.fields.beds > 1">s</span></p>
+    </div>
+    <div class="bedrooms card">
+      <span class="material-icons-round icon">bedroom_parent</span>
+      <span class="number">{{details.record.fields.bedrooms}}</span>
+      <p>chambre<span *ngIf="details.record.fields.bedrooms > 1">s</span></p>
+    </div>
+    <div class="bathrooms card">
+      <span class="material-icons-round icon">bathtub</span>
+      <span class="number">{{details.record.fields.bathrooms}}</span>
+      <p>salle<span *ngIf="details.record.fields.bathrooms > 1">s</span> de bain</p>
+    </div>
   </section>
 
   <section id="amenitiesSection">
-    <h3>Ce que propose le logement</h3>
-    <ul>
-      <li *ngFor="let item of details.record.fields.amenities">
-        <span *ngIf="!item.startsWith('translation missing:')">{{item}}</span>
-      </li>
-    </ul>
+    <div class="fixPart">
+      <h3>Ce que propose le logement</h3>
+      <ul>
+        <li *ngFor="let item of details.record.fields.amenities">
+          <span *ngIf="!item.startsWith('translation missing:')">{{item}}</span>
+        </li>
+      </ul>
+    </div>
+
+    <button (click)="toggleShowAllAmenities()">Voir les {{details.record.fields.amenities.length}} équipements</button>
+
+    <div id="modalAmenities" *ngIf="showAllAmenities">
+      <div class="modalPart">
+        <h3>Ce que propose le logement</h3>
+        <ul>
+          <li *ngFor="let amenity of details.record.fields.amenities">
+            <span *ngIf="!amenity.startsWith('translation missing:')">
+              {{amenity}}
+            </span>
+          </li>
+        </ul>
+        <button (click)="toggleShowAllAmenities()">Fermer</button>
+      </div>
+    </div>
   </section>
 
   <section id="ratingSection">

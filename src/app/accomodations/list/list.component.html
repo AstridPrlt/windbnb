@@ -17,7 +17,7 @@
       Show on map <span class="material-icons-outlined">map</span>
     </button>
     <div *ngFor="let item of apiList, let index = index">
-      <app-card-accomodation [dataForCard]="item.record" [unsplashImage]="imagesUrl[index]">
+      <app-card-accomodation [dataForCard]="item.record" [unsplashImage]="imagesUrl[index]" [indexImage]="index">
 
       </app-card-accomodation>
     </div>

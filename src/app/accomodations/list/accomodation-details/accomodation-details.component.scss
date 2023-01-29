@@ -1,9 +1,106 @@
 @import 'src/styles';
 
 .detailsPage {
+  padding: 50px 200px;
   font-size: 16px;
+  position: relative;
+
+  section#roomSection {
+    display: flex;
+    gap: 10px;
+    .card {
+      width: 150px;
+      height: 110px;
+      display: flex;
+      flex-wrap: wrap;
+      flex-direction: column;
+      border: 1px solid lightgrey;
+      border-radius: 10px;
+
+      span.icon {
+        width: 40%;
+        height: 100%;
+        display: flex;
+        align-items: center;
+        font-size: 45px;
+      }
+      span.number {
+        width: 60%;
+        height: 60%;
+        display: flex;
+        justify-content: center;
+        align-items: flex-end;
+        font-size: 35px;
+      }
+      p {
+        display: flex;
+        width: 60%;
+        height: 35%;
+        justify-content: center;
+        align-items: flex-start;
+        font-size: 12px;
+      }
+    }
+  }
 
   section#amenitiesSection {
-    height: 600px;
+    height: 300px;
+
+    .fixPart {
+      height: 250px;
+      overflow: hidden;
+    }
+    ul {
+      display: flex;
+      flex-wrap: wrap;
+
+      li {
+        list-style: none;
+        margin: 10px 0;
+        width: 50%;
+      }
+    }
+
+    button {
+      cursor: pointer;
+      padding: 10px 20px;
+      background: none;
+      border: 1px solid black;
+      border-radius: 8px;
+
+      &:hover {
+        background: lightgray;
+      }
+    }
+
+    #modalAmenities {
+      position: fixed;
+      width: 100vw;
+      height: 100vh;
+      top: 0;
+      left: 0;
+      background: rgba(0, 0, 0, 0.3);
+      .modalPart{
+        width: 50vw;
+        height: 80vh;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        background: white;
+        box-shadow: 0 0 20px 0px grey;
+        border-radius: 4%;
+        padding: 40px;
+        position: absolute;
+        z-index: 5;
+        ul{
+          margin: 10px 0;
+          overflow: auto;
+        }
+        button {
+          position: absolute;
+          right: 40px;
+        }
+      }
+    }
   }
 }
