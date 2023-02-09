@@ -1,9 +1,14 @@
 @import 'src/styles';
 
 .detailsPage {
-  padding: 50px 200px;
+  padding: 50px 150px;
   font-size: 16px;
   position: relative;
+
+  section {
+    border-bottom: 1px solid #dfdfdf;
+    padding: 50px 0;
+  }
 
   section#roomSection {
     display: flex;
@@ -44,7 +49,6 @@
   }
 
   section#amenitiesSection {
-    height: 300px;
 
     .fixPart {
       height: 250px;
@@ -64,6 +68,7 @@
     button {
       cursor: pointer;
       padding: 10px 20px;
+      margin-top: 25px;
       background: none;
       border: 1px solid black;
       border-radius: 8px;
@@ -91,7 +96,7 @@
         border-radius: 4%;
         padding: 40px;
         position: absolute;
-        z-index: 5;
+        z-index: 1000;
         ul{
           margin: 10px 0;
           overflow: auto;
@@ -99,6 +104,66 @@
         button {
           position: absolute;
           right: 40px;
+        }
+      }
+    }
+  }
+
+  section#ratingSection {
+
+    .globalRating {
+      display: flex;
+      align-items: center;
+      margin-bottom: 30px;
+      .star {
+        font-size: 35px;
+        width: 40px;
+      }
+      .globalRate {
+        font-size: 25px;
+        font-weight: 500;
+        .dot {
+          width: 6px;
+          height: 6px;
+          background: #333333;
+          display: inline-block;
+          border-radius: 50%;
+          vertical-align: middle;
+          margin: 0 7px;
+        }
+      }
+    }
+    .ratingDetails {
+    display: flex;
+    column-gap: 10%;
+    row-gap: 15px;
+    flex-wrap: wrap;
+
+        .rating {
+          display: flex;
+          justify-content: space-between;
+          width: 45%;
+          span {
+          display: inline-block;
+        }
+        .percentageBar {
+          display: flex;
+          align-items: center;
+          .bar {
+            width: 100px;
+            height: 5px;
+            background: lightgray;
+            border-radius: 15px;
+            .percentage {
+              height: 5px;
+              background: #333;
+              border-radius: 15px;
+            }
+          }
+          .rate {
+            width: 40px;
+            text-align: right;
+          }
         }
       }
     }

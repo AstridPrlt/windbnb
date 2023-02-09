@@ -66,7 +66,73 @@
   </section>
 
   <section id="ratingSection">
+    <div class="globalRating">
+      <span class="star material-icons-round">star_rate_rounded</span>
+      <span class="globalRate">{{details.record.fields.review_scores_value / 2}} <span class="dot"></span> {{details.record.fields.number_of_reviews}} avis</span>
+    </div>
 
+    <div class="ratingDetails">
+
+      <div class="rating accuracy">
+        <span class="text">Précision</span>
+        <div class="percentageBar">
+          <div class="bar">
+            <div class="percentage" [ngStyle]="{width: (details.record.fields.review_scores_accuracy * 10) + 'px'}"></div>
+          </div>
+          <span class="rate">{{details.record.fields.review_scores_accuracy / 2}}</span>
+      </div>
+    </div>
+
+    <div class="rating checkin">
+      <span class="text">Arrivée</span>
+      <div class="percentageBar">
+        <div class="bar">
+          <div class="percentage" [ngStyle]="{width: (details.record.fields.review_scores_checkin * 10) + 'px'}"></div>
+        </div>
+        <span class="rate">{{details.record.fields.review_scores_checkin / 2}}</span>
+      </div>
+    </div>
+
+    <div class="rating cleanliness">
+      <span class="text">Propreté</span>
+      <div class="percentageBar">
+        <div class="bar">
+          <div class="percentage" [ngStyle]="{width: (details.record.fields.review_scores_cleanliness * 10) + 'px'}"></div>
+        </div>
+        <span class="rate">{{details.record.fields.review_scores_cleanliness / 2}}</span>
+      </div>
+    </div>
+
+    <div class="rating communication">
+      <span class="text">Communication</span>
+      <div class="percentageBar">
+        <div class="bar">
+          <div class="percentage" [ngStyle]="{width: (details.record.fields.review_scores_communication * 10) + 'px'}"></div>
+        </div>
+        <span class="rate">{{details.record.fields.review_scores_communication / 2}}</span>
+      </div>
+    </div>
+
+    <div class="rating location">
+      <span class="text">Emplacement</span>
+      <div class="percentageBar">
+        <div class="bar">
+          <div class="percentage" [ngStyle]="{width: (details.record.fields.review_scores_location * 10) + 'px'}"></div>
+        </div>
+        <span class="rate">{{details.record.fields.review_scores_location /2}}</span>
+      </div>
+    </div>
+
+    <div class="rating value">
+      <span class="text">Qualité-prix</span>
+      <div class="percentageBar">
+        <div class="bar">
+          <div class="percentage" [ngStyle]="{width: (details.record.fields.review_scores_value * 10) + 'px'}"></div>
+        </div>
+        <span class="rate">{{details.record.fields.review_scores_value / 2}}</span>
+      </div>
+    </div>
+  </div>
   </section>
 
   <section id="mapSection">
