@@ -4,7 +4,10 @@
 
   <section id="titleSection">
     <h1>{{details.record.fields.name}}</h1>
-
+    <span class="type">{{details.record.fields.room_type == "Private room" ? "Chambre privée" : "Logement entier"}}</span>
+    <div>
+      <span>Chez {{details.record.fields.host_name}}</span>
+    </div>
   </section>
 
   <section id="images">
@@ -136,10 +139,21 @@
   </section>
 
   <section id="mapSection">
-
+    <h3>Où se situe le logement</h3>
   </section>
 
   <section id="hostSection">
+
+    <div class="hostSummary">
+      <div class="hostPicture">
+        <img #image (error)="image.hidden = true" [src]="details.record.fields.host_thumbnail_url" alt="" class="hostPicture">
+        <img *ngIf="image.hidden" src="https://a0.muscache.com/defaults/user_pic-50x50.png?v=2" alt="" class="hostPicture">
+      </div>
+      <span class="hostName">Proposé par {{details.record.fields.host_name}}</span>
+      <span>Hôte depuis {{details.record.fields.host_since.substring(0,4)}}</span>
+      <span>Taux de réponse : {{details.record.fields.host_response_rate}} %</span>
+      <span>Délai de réponse : {{details.record.fields.host_response_time}}</span>
+    </div>
 
   </section>
 

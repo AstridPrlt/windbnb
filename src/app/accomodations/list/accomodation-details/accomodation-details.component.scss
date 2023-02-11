@@ -168,4 +168,17 @@
       }
     }
   }
+
+  #hostSection {
+    .hostPicture {
+      width: 55px;
+      height: 55px;
+      img {
+        border-radius: 50%;
+      }
+    }
+    span {
+      display: inline-block;
+    }
+  }
 }
