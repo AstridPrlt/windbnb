@@ -44,6 +44,7 @@
         justify-content: center;
         align-items: flex-start;
         font-size: 12px;
+        line-height: 30px;
       }
     }
   }
@@ -116,12 +117,11 @@
       align-items: center;
       margin-bottom: 30px;
       .star {
-        font-size: 35px;
+        font-size: 32px;
         width: 40px;
       }
       .globalRate {
-        font-size: 25px;
-        font-weight: 500;
+        font-size: 24px;
         .dot {
           width: 6px;
           height: 6px;
@@ -170,15 +170,58 @@
   }
 
   #hostSection {
-    .hostPicture {
-      width: 55px;
-      height: 55px;
-      img {
-        border-radius: 50%;
+    display: flex;
+    align-items: flex-start;
+
+    .hostSummary {
+      width: 50%;
+      .hostPictureAndName {
+        display: flex;
+        align-items: center;
+        column-gap: 15px;
+        img {
+          width: 55px;
+          height: 55px;
+          border-radius: 50%;
+        }
+        .name {
+          span {
+            color: grey;
+            font-size: 14px;
+          }
+        }
+      }
+      .responseInfo {
+        margin-left: 65px;
+        margin-top: 10px ;
+        span {
+          display: inline-block;
+          display: inline-block;
+          width: 100%;
+          margin: 10px 0;
+        }
       }
     }
-    span {
-      display: inline-block;
+
+    .hostQuote {
+      width: 50%;
+      blockquote::before {
+        content: open-quote;
+        font-size: 32px;
+      }
+      blockquote::after {
+        content: close-quote;
+        font-size: 32px;
+      }
+      blockquote {
+        text-indent: -0.85em;
+        quotes: "“ " " ”" "‘ " " ’";
+        font-style: italic;
+        background: #f1f1f1;
+        border-radius: 20px;
+        line-height: 32px;
+        padding: 15px 30px;
+      }
     }
   }
 }

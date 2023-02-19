@@ -12,6 +12,7 @@
 
   <section id="images">
     <img [src]="unsplashImage" alt="">
+    <img src="{{details.record.fields.medium_url}}" alt="">
   </section>
 
   <section id="summarySection">
@@ -69,10 +70,10 @@
   </section>
 
   <section id="ratingSection">
-    <div class="globalRating">
+    <h3 class="globalRating">
       <span class="star material-icons-round">star_rate_rounded</span>
       <span class="globalRate">{{details.record.fields.review_scores_value / 2}} <span class="dot"></span> {{details.record.fields.number_of_reviews}} avis</span>
-    </div>
+    </h3>
 
     <div class="ratingDetails">
 
@@ -145,16 +146,21 @@
   <section id="hostSection">
 
     <div class="hostSummary">
-      <div class="hostPicture">
+      <div class="hostPictureAndName">
         <img #image (error)="image.hidden = true" [src]="details.record.fields.host_thumbnail_url" alt="" class="hostPicture">
         <img *ngIf="image.hidden" src="https://a0.muscache.com/defaults/user_pic-50x50.png?v=2" alt="" class="hostPicture">
+        <div class="name">
+          <h3 class="hostName">Proposé par {{details.record.fields.host_name}}</h3>
+          <span>Hôte depuis {{details.record.fields.host_since.substring(0,4)}}</span>
+        </div>
       </div>
-      <span class="hostName">Proposé par {{details.record.fields.host_name}}</span>
-      <span>Hôte depuis {{details.record.fields.host_since.substring(0,4)}}</span>
-      <span>Taux de réponse : {{details.record.fields.host_response_rate}} %</span>
-      <span>Délai de réponse : {{details.record.fields.host_response_time}}</span>
+      <div class="responseInfo">
+        <span>Taux de réponse : {{details.record.fields.host_response_rate}} %</span>
+        <span>Délai de réponse : {{details.record.fields.host_response_time}}</span>
+      </div>
     </div>
 
+    <div class="hostQuote"><blockquote *ngIf="details.record.fields.host_about">{{details.record.fields.host_about}}</blockquote></div>
   </section>
 
 </div>
