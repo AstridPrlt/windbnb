@@ -11,7 +11,7 @@
   </section>
 
   <section id="images">
-    <img [src]="unsplashImage" alt="">
+    <img [src]="unsplashImage" alt="" class="mainImg">
     <img src="{{details.record.fields.medium_url}}" alt="">
   </section>
 
@@ -141,6 +141,10 @@
 
   <section id="mapSection">
     <h3>Où se situe le logement</h3>
+
+    <app-map [mapCenterCoordinates] = "[details.record.fields.geolocation.lon, details.record.fields.geolocation.lat]" [mapZoom] = "14" [accCoordinates] = "[details.record.fields.geolocation.lon, details.record.fields.geolocation.lat]"></app-map>
+
+    <!-- <app-map [mapZoom] = "10"></app-map> -->
   </section>
 
   <section id="hostSection">

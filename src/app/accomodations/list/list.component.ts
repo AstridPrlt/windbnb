@@ -30,10 +30,13 @@ export class ListComponent implements OnInit {
   constructor(private _renderer: Renderer2) {}
 
   ngOnInit(): void {
-    this.imagesUrl = UnsplashImagesJson.map(i => i.urls.small)
+    this.imagesUrl = UnsplashImagesJson.map(i => i.urls.small);
+    console.log(this.apiList);
+
   }
   ngOnChanges(): void {
-    this.createMap();
+    // this.createMap();
+    console.log(this.apiList);
   }
 
   toggleTo(format: string) {
@@ -41,7 +44,7 @@ export class ListComponent implements OnInit {
     if(format == 'map') {
       this._renderer.setStyle(this.mapbox.nativeElement, 'display', 'block');
       this._renderer.setStyle(this.homeList.nativeElement, 'display', 'none');
-      this.map.resize();
+      // this.map.resize();
     } else {
       this._renderer.setStyle(this.mapbox.nativeElement, 'display', 'none');
       this._renderer.setStyle(this.homeList.nativeElement, 'display', 'flex');

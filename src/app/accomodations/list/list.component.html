@@ -25,10 +25,20 @@
 
 
 
-  <div id="mapbox" #mapbox>
+  <!-- <div id="mapbox" #mapbox>
+    <button *ngIf="listOrMap == 'map'" class="toggleMap" type="button" (click)="toggleTo('list')">
+      Show the list <span class="material-icons">list</span>
+    </button>
+  </div> -->
+
+  <div class="mapbox" #mapbox *ngIf="apiList">
+    <app-map [mapCenterCoordinates] = "[2.344075261837547, 48.857990087246385]" [mapZoom] = "11" [records] = "apiList"></app-map>
+
     <button *ngIf="listOrMap == 'map'" class="toggleMap" type="button" (click)="toggleTo('list')">
       Show the list <span class="material-icons">list</span>
     </button>
   </div>
+
+
 
 </div>

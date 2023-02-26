@@ -15,7 +15,7 @@ export class CardAccomodationComponent {
   @Output() indexForImage!: number;
 
   ngOnInit(): void {
-    console.log(this.dataForCard);
+    // console.log(this.dataForCard);
 
     this.indexForImage = this.indexImage;
   }

@@ -1,0 +1,17 @@
+
+#mapbox {
+  width: 100%;
+  height: 75vh;
+  .mapboxgl-canvas {
+    width: 100%;
+    height: 100%;
+  }
+  .marker {
+    background-image: url('../../../../assets/location-40.png');
+    background-size: cover;
+    background-repeat: no-repeat;
+    width: 40px;
+    height: 40px;
+    cursor: pointer;
+  }
+}

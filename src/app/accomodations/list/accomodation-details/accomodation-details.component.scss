@@ -10,6 +10,15 @@
     padding: 50px 0;
   }
 
+  section#images {
+    .mainImg {
+      height: 60vh;
+      width: 50%;
+      object-fit: cover;
+      object-position: center;
+    }
+  }
+
   section#roomSection {
     display: flex;
     gap: 10px;
@@ -205,22 +214,31 @@
 
     .hostQuote {
       width: 50%;
-      blockquote::before {
-        content: open-quote;
-        font-size: 32px;
-      }
-      blockquote::after {
-        content: close-quote;
-        font-size: 32px;
-      }
       blockquote {
-        text-indent: -0.85em;
+        position: relative;
+        // text-indent: -0.85em;
         quotes: "“ " " ”" "‘ " " ’";
         font-style: italic;
         background: #f1f1f1;
         border-radius: 20px;
-        line-height: 32px;
-        padding: 15px 30px;
+        line-height: 27px;
+        padding: 25px 50px;
+      }
+      blockquote::before {
+        content: open-quote;
+        font-size: 90px;
+        color: lightgray;
+        position: absolute;
+        left: -4px;
+        top: 32px;
+      }
+      blockquote::after {
+        content: close-quote;
+        font-size: 90px;
+        color: lightgray;
+        position: absolute;
+        right: 23px;
+        bottom: -12px;
       }
     }
   }

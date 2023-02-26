@@ -9,6 +9,8 @@ import { SearchComponent } from './search/search.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { CardAccomodationComponent } from './list/card-accomodation/card-accomodation.component';
 import { AccomodationDetailsComponent } from './list/accomodation-details/accomodation-details.component';
+import { MapComponent } from '../shared/components/map/map.component';
+import { SharedModule } from '../shared/shared.module';
 
 const routes: Routes = [
   { path: '', component: AccomodationsComponent }
@@ -26,7 +28,8 @@ const routes: Routes = [
     CommonModule,
     RouterModule.forChild(routes),
     AccomodationsRoutingModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    SharedModule
   ],
   exports: [
     RouterModule
