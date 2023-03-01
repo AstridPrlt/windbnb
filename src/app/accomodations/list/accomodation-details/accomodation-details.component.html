@@ -11,8 +11,15 @@
   </section>
 
   <section id="images">
-    <img [src]="unsplashImage" alt="" class="mainImg">
-    <img src="{{details.record.fields.medium_url}}" alt="">
+    <div class="mainImg images">
+      <img [src]="unsplashImage" alt="">
+    </div>
+    <!-- <img src="{{details.record.fields.medium_url}}" alt=""> -->
+    <ng-container *ngIf="randomImages.length > 0">
+      <div *ngFor="let imgUrl of randomImages, let index = index" class="randomImg{{index}} images">
+        <img [src]="imgUrl" alt="" >
+      </div>
+    </ng-container>
   </section>
 
   <section id="summarySection">
