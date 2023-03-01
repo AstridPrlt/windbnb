@@ -29,17 +29,16 @@ export class AccomodationDetailsComponent implements OnInit {
 
     console.log(this.details$.subscribe({next: res => console.log(res.record.fields)}));
 
-    this.getRandomImages();
+    this.getRandomImages(6);
   }
 
   toggleShowAllAmenities(): void {
     this.showAllAmenities = !this.showAllAmenities;
   }
 
-  getRandomImages(): void {
+  getRandomImages(numberOfImages: number): void {
     let maxNumber = UnsplashImagesJson.length - 1;
     let minNumber = 100;
-    let numberOfImages = 4;
     let randomNumbers: number[] = [];
     let randomAlreadyExists: boolean;
 

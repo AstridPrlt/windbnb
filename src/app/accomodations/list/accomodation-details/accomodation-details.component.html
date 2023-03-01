@@ -16,10 +16,15 @@
     </div>
     <!-- <img src="{{details.record.fields.medium_url}}" alt=""> -->
     <ng-container *ngIf="randomImages.length > 0">
-      <div *ngFor="let imgUrl of randomImages, let index = index" class="randomImg{{index}} images">
+      <div *ngFor="let imgUrl of randomImages.slice(0,4), let index = index" class="randomImg{{index}} images">
         <img [src]="imgUrl" alt="" >
       </div>
     </ng-container>
+
+    <button *ngIf="randomImages.length > 4" class="showAllImages">
+      <span class="material-icons-round">apps</span>
+      Afficher toutes les photos
+    </button>
   </section>
 
   <section id="summarySection">
