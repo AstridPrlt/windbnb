@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, ElementRef, OnInit, Renderer2, ViewChild } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { mergeMap, Observable } from 'rxjs';
 import { RecordDetails, Records } from 'src/app/_models/api-airbnb-results.model';
@@ -14,16 +14,21 @@ export class AccomodationDetailsComponent implements OnInit {
   details$!: Observable<Records>;
   unsplashImage!: string;
   randomImages: string[] = [];
+  imagesForModal: string[] = [];
 
-  showAllAmenities: boolean = false;
+  showAllPicturesModal: boolean = false;
+  showAllAmenitiesModal: boolean = false;
 
-  constructor(private route: ActivatedRoute, private service: WindbnbServiceService) {}
+  @ViewChild('modalPictures') modalPictures!: ElementRef;
+
+  constructor(private route: ActivatedRoute, private service: WindbnbServiceService, private _renderer: Renderer2) {}
 
   ngOnInit(): void {
     let id = this.route.snapshot.params['id'];
     let indexForImage = this.route.snapshot.queryParams['indexImage'];
 
     this.unsplashImage = UnsplashImagesJson[indexForImage].urls.small;
+    this.imagesForModal.push(UnsplashImagesJson[indexForImage].urls.regular);
 
     this.details$ = this.service.getApiRecordDetails(id);
 
@@ -33,7 +38,17 @@ export class AccomodationDetailsComponent implements OnInit {
   }
 
   toggleShowAllAmenities(): void {
-    this.showAllAmenities = !this.showAllAmenities;
+    this.showAllAmenitiesModal = !this.showAllAmenitiesModal;
+  }
+  toggleShowAllPictures(): void {
+    this.showAllPicturesModal = !this.showAllPicturesModal;
+    if(this.showAllPicturesModal) {
+      this._renderer.addClass(this.modalPictures.nativeElement, 'modalPicturesOpening');
+      this._renderer.removeClass(this.modalPictures.nativeElement, 'modalPicturesClosing')
+    } else {
+      this._renderer.addClass(this.modalPictures.nativeElement, 'modalPicturesClosing');
+      this._renderer.removeClass(this.modalPictures.nativeElement, 'modalPicturesOpening')
+    }
   }
 
   getRandomImages(numberOfImages: number): void {
@@ -49,6 +64,7 @@ export class AccomodationDetailsComponent implements OnInit {
         if(!randomAlreadyExists) {
           randomNumbers.push(randomNb);
           this.randomImages.push(UnsplashImagesJson[randomNb].urls.small);
+          this.imagesForModal.push(UnsplashImagesJson[randomNb].urls.regular);
         }
       }
       while(randomAlreadyExists)

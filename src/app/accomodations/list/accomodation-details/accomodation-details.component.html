@@ -21,11 +21,22 @@
       </div>
     </ng-container>
 
-    <button *ngIf="randomImages.length > 4" class="showAllImages">
+    <button *ngIf="randomImages.length > 4" class="showAllImages" (click)="toggleShowAllPictures()">
       <span class="material-icons-round">apps</span>
       Afficher toutes les photos
     </button>
+
   </section>
+  <div class="modalPictures" #modalPictures>
+    <button class="openModalPicturesButton" (click)="toggleShowAllPictures()">
+      <span class="material-icons-round icon">chevron_left</span>
+    </button>
+    <div class="imagesList">
+      <div *ngFor="let imgUrl of imagesForModal" class="imagesModal">
+        <img [src]="imgUrl" alt="" >
+      </div>
+    </div>
+  </div>
 
   <section id="summarySection">
     <p>{{details.record.fields.summary}}</p>
@@ -66,7 +77,7 @@
 
     <button (click)="toggleShowAllAmenities()">Voir les {{details.record.fields.amenities.length}} équipements</button>
 
-    <div id="modalAmenities" *ngIf="showAllAmenities">
+    <div id="modalAmenities" *ngIf="showAllAmenitiesModal">
       <div class="modalPart">
         <h3>Ce que propose le logement</h3>
         <ul>
