@@ -79,14 +79,15 @@
       transform: translateX(0);
       animation: modalPicturesShowing 0.3s ease-in-out;
       .imagesList {
+        opacity: 1;
         animation: picturesShowing 0.7s ease-in-out;
       }
     }
     &.modalPicturesClosing {
       transform: translateX(100vw);
-      animation: modalPicturesShowing 0.3s ease-in-out reverse;
+      animation: modalPicturesDisapearing 0.2s ease-in-out;
       .imagesList {
-        animation: picturesShowing 0.7s ease-in-out reverse;
+        opacity: 0;
       }
     }
     .imagesList {
@@ -124,11 +125,17 @@
   @keyframes modalPicturesShowing {
     0% {
       transform: translateX(100vw);
-      opacity: 0;
     }
     100% {
       transform: translateX(0);
-      opacity: 1;
+    }
+  }
+  @keyframes modalPicturesDisapearing {
+    0% {
+      transform: translateX(0);
+    }
+    100% {
+      transform: translateX(100vw);
     }
   }
   @keyframes picturesShowing {
