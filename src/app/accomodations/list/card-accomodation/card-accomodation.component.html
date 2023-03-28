@@ -1,6 +1,7 @@
 <!-- <div class="homeList"> -->
   <div class="homeItem">
-    <img [src]="unsplashImage" alt="picture of the home">
+    <!-- <img [src]="unsplashImage" alt="picture of the home"> -->
+    <img src="{{dataForCard.fields.picture_url.url}}" alt="picture of the home">
     <div class="image"></div>
     <div class="details">
       <span class="superhost" *ngIf="dataForCard.fields.features.includes('Host Is Superhost')">SUPER HOST</span>

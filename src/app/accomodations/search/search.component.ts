@@ -1,6 +1,7 @@
 import { animate, animateChild, group, query, state, style, transition, trigger } from '@angular/animations';
 import { Component, ElementRef, EventEmitter, Input, OnInit, Output, Renderer2, ViewChild } from '@angular/core';
 import { UntypedFormBuilder, Validators } from '@angular/forms';
+import { Records } from 'src/app/_models/api-airbnb-results.model';
 import { HomeItem } from 'src/app/_models/home-item.model';
 
 @Component({
@@ -47,7 +48,7 @@ import { HomeItem } from 'src/app/_models/home-item.model';
 })
 export class SearchComponent implements OnInit {
   @Input()
-  listAcc!: HomeItem[];
+  listAcc!: Records[];
 
   @Output() toggleSearchFormEvent = new EventEmitter<boolean>();
   @Output() filterAccomodations = new EventEmitter<any>();
@@ -74,7 +75,7 @@ export class SearchComponent implements OnInit {
   ngOnInit(): void {
     this.listAcc;
     //retrieve list of all cities without doublons :
-    this.listCities = [...new Set(this.listAcc.map(x => x.city))];
+    this.listCities = [...new Set(this.listAcc.map(x => x.record.fields.zipcode).sort())];
 
     this.citiesCount = this.listCities.length;
   }
@@ -139,6 +140,8 @@ export class SearchComponent implements OnInit {
     let guestsNumber = this.searchForm.get('guestsAdults')?.value + this.searchForm.get('guestsChildren')?.value;
     let filter = [this.searchForm.get('locationCity')?.value, guestsNumber]
     this.filterAccomodations.emit(filter);
+    console.log(filter);
+
     this.closeSearchForm();
   }
 }

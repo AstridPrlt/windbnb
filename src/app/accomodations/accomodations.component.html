@@ -6,10 +6,12 @@
     <img src="assets/logo.png" alt="windbnb logo">
   </a>
 
-  <app-search [listAcc]="list"
-              (toggleSearchFormEvent)="searchFormState($event)"
-              (filterAccomodations)="filter($event)">
+  <ng-container *ngIf="listToShow">
+    <app-search [listAcc]="listToShow"
+    (toggleSearchFormEvent)="searchFormState($event)"
+    (filterAccomodations)="filter($event)">
   </app-search>
+</ng-container>
 
   <app-list [list]="listToShow" [apiList]="resultsListApi"></app-list>
 </div>

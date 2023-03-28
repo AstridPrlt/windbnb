@@ -1,6 +1,13 @@
 # Windbnb
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 13.0.3.
+This project was created with [Angular CLI](https://github.com/angular/angular-cli) version 13.0.3, then regularly updated to last version.
+
+## Built with
+Angular
+Sass
+RxJs
+Mapbox
+Unsplash API
 
 ## Development server
 
